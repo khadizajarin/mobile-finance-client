@@ -5,6 +5,7 @@ import { AuthContext } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import Navbar from "../homepage/navbar";
+import axios from "axios";
 
 const TransactionsPage = () => {
   const [transactions, setTransactions] = useState([]);
