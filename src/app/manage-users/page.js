@@ -11,7 +11,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/users/approved");
+        const response = await axios.get("https://mobile-finance-server-production.up.railway.app/api/users/approved");
   
         setUsers(response.data);
       } catch (error) {

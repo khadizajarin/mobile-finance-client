@@ -34,7 +34,7 @@ export default function CashOut() {
   
     const fetchUserMobile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/get-mobile`, {
+        const response = await axios.get(`https://mobile-finance-server-production.up.railway.app/api/users/get-mobile`, {
           params: { email: senderEmail },
         });
   
@@ -59,7 +59,7 @@ export default function CashOut() {
     setIsSubmitting(true);
   
     try {
-      const response = await axios.post("http://localhost:5000/api/transactions/cash-out", {
+      const response = await axios.post("https://mobile-finance-server-production.up.railway.app/api/transactions/cash-out", {
         userMobile,
         agentMobile,
         amount: Number(amount),

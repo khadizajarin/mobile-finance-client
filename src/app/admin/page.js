@@ -13,7 +13,7 @@ export default function AdminDashboard() {
   // ✅ Fetch pending agents using Axios
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/admin/pending-agents")
+      .get("https://mobile-finance-server-production.up.railway.app/api/admin/pending-agents")
       .then((response) => {
         setAgents(response.data); // ✅ Set fetched agents
       })
@@ -28,7 +28,7 @@ export default function AdminDashboard() {
 
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/admin/approve-agent",
+        "https://mobile-finance-server-production.up.railway.app/api/admin/approve-agent",
         { adminEmail, agentEmail }, // ✅ Pass data in request body
         { headers: { "Content-Type": "application/json" } } // ✅ Set headers
       );

@@ -22,7 +22,7 @@ const TransactionsPage = () => {
       console.log("Fetching transactions for email:", user.email);
   
       try {
-        const response = await axios.get(`http://localhost:5000/api/your-transactions`, {
+        const response = await axios.get(`https://mobile-finance-server-production.up.railway.app/api/your-transactions`, {
           params: { email: user.email },
         });
   

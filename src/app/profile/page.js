@@ -24,7 +24,7 @@ export default function ProfilePage() {
   
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users`, {
+        const response = await axios.get(`https://mobile-finance-server-production.up.railway.app/api/users`, {
           params: { email: user.email }
         });
   

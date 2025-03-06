@@ -6,7 +6,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/")
+    axios.get("https://mobile-finance-server-production.up.railway.app/")
       .then((response) => setMessage(response.data.message))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

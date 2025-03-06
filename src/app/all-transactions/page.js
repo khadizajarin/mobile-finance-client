@@ -13,7 +13,7 @@ const TransactionsPage = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/transactions");
+        const response = await axios.get("https://mobile-finance-server-production.up.railway.app/api/transactions");
 
         setTransactions(response.data); // ✅ Set transactions state
         console.log(response.data); // ✅ Log fetched transactions

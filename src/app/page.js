@@ -17,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/")
+      .get("https://mobile-finance-server-production.up.railway.app/")
       .then((response) => {
         setMessage(response.data.message);
       })

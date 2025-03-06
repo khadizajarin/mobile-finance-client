@@ -46,7 +46,7 @@ const AuthProvider = ({children}) => {
           if (firebaseUser) {
             try {
               // Fetch user details from the database
-              const response = await fetch(`http://localhost:5000/api/auth/get-user?email=${firebaseUser.email}`);
+              const response = await fetch(`https://mobile-finance-server-production.up.railway.app/api/auth/get-user?email=${firebaseUser.email}`);
               const data = await response.json();
     
               if (data.user) {

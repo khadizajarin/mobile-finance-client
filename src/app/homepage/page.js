@@ -25,7 +25,7 @@ export default function Homepage() {
     const fetchUserData = async () => {
       if (!user?.email) return;
       try {
-        const response = await axios.get(`http://localhost:5000/api/users`, {
+        const response = await axios.get(`https://mobile-finance-server-production.up.railway.app/api/users`, {
           params: { email: user.email },
         });
   
@@ -42,7 +42,7 @@ export default function Homepage() {
     if (user?.accountType === "admin") {
       const fetchTotalBalance = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/api/total-money");
+          const response = await axios.get("https://mobile-finance-server-production.up.railway.app/api/total-money");
   
           setTotalSystemBalance(response.data.total || 0); // ✅ Total system money
           setUser(response.data);

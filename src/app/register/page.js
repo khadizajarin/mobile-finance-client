@@ -32,7 +32,7 @@ export default function RegisterPage() {
       // Call the createUser function from AuthContext
       await createUser(values.email, values.password); // Pass email and password correctly
   
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
+      const response = await axios.post("https://mobile-finance-server-production.up.railway.app/api/auth/register", {
         ...values,
         accountType: values.accountType,
       });

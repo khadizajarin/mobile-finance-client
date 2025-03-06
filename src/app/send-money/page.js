@@ -22,7 +22,7 @@ export default function SendMoney() {
 
     const fetchSenderMobile = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/get-mobile?email=${senderEmail}`,{mode :'no-cors'});
+        const response = await fetch(`https://mobile-finance-server-production.up.railway.app/api/users/get-mobile?email=${senderEmail}`,{mode :'no-cors'});
         const data = await response.json();
         if (response.ok) {
           setSenderMobile(data.mobile); // Set sender's mobile number
@@ -47,7 +47,7 @@ export default function SendMoney() {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/transactions/send-money", {
+      const response = await axios.post("https://mobile-finance-server-production.up.railway.app/api/transactions/send-money", {
         senderMobile,
         recipientMobile,
         amount: Number(amount),
