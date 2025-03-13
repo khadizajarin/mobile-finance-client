@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here's the **Client Side README** ready for you to copy:  
 
-## Getting Started
+```md
+# Mobile Finance Web App - Client Side  
 
-First, run the development server:
+🚀 **Live Site:** [Netlify Deployment Link]  
 
+This is the **front-end** of the Mobile Finance Web App, a secure financial transaction platform similar to bKash and Nagad. The application provides seamless money transactions with role-based access for **Users, Agents, and Admins**.  
+
+## 🔹 **Tech Stack**  
+- **Next.js (React Framework)**  
+- **Tailwind CSS**  
+- **Axios** for API calls  
+- **SweetAlert2** for interactive alerts  
+- **Formik & Yup** for form validation  
+- **React Context API** for authentication  
+
+## 🔹 **Features**  
+✅ **User Features:**  
+- Send Money securely with a PIN  
+- Check transaction history  
+- Cash-in & Cash-out functionality  
+- Secure authentication & hashed PIN storage  
+
+✅ **Agent Features:**  
+- Handle cash-in/cash-out requests  
+- Approve user transactions  
+- Role-based dashboard  
+
+✅ **Admin Features:**  
+- Manage users & agents  
+- Approve agents  
+- Monitor system-wide transactions  
+
+## 🔹 **Setup Instructions**  
+
+### 1️⃣ Clone the Repository  
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/khadizajarin/mobile-finance-client
+cd client
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies  
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3️⃣ Create a `.env.local` file and add:  
+```env
+NEXT_PUBLIC_API_URL=[Your Backend API URL]
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Run Locally  
+```bash
+npm run dev
+```
+  
+## 🔹 **Login Credentials for Testing**  
+👨‍💼 **Admin**  
+📧 Email: `khadiza131310@gmail.com` | 🔑 Password: `12345678`  
 
-## Learn More
+👤 **User**  
+📧 Email: `khadiza131313@gmail.com` | 🔑 Password: `12345678` | PIN: `24680` | 📱 Mobile: `01315929363`  
 
-To learn more about Next.js, take a look at the following resources:
+🧑‍💼 **Agent**  
+📧 Email: `n.ahmed@gmail.com` | 🔑 Password: `12345678` | PIN: `40321` | 📱 Mobile: `01676804470`  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔹 **Deployment**  
+- **Frontend deployed on:** [Netlify Deployment Link]  
+- **Backend API:** [Railway Deployment Link]  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🚀 **Feel free to fork and contribute!**  
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Let me know if you need any modifications! 🚀
