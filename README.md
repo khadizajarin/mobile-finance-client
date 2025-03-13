@@ -32,7 +32,7 @@ This is the **front-end** of the Mobile Finance Web App, a secure financial tran
 - Approve agents  
 - Monitor system-wide transactions  
 
-## 🔹 **Setup Instructions**  
+### 🔹 **Setup Instructions**  
 
 ### 1️⃣ Clone the Repository  
 ```bash
