@@ -1,45 +1,42 @@
 
 
 ```md
-# Mobile Finance Web App - Client Side  
+# Mobile Finance Web App - Server Side  
 
-🚀 **Live Site:** https://mobile-finance.netlify.app/ 
+🚀 **Live API:** https://mobile-finance-server-production.up.railway.app/
 
-This is the **front-end** of the Mobile Finance Web App, a secure financial transaction platform similar to bKash and Nagad. The application provides seamless money transactions with role-based access for **Users, Agents, and Admins**.  
+This is the **backend** of the Mobile Finance Web App, a secure financial transaction platform inspired by services like **bKash & Nagad**. It provides API endpoints for **User, Agent, and Admin** functionalities, including secure authentication, transactions, and role-based access control.  
 
 ## 🔹 **Tech Stack**  
-- **Next.js (React Framework)**  
-- **Tailwind CSS**  
-- **Axios** for API calls  
-- **SweetAlert2** for interactive alerts  
-- **Formik & Yup** for form validation  
-- **React Context API** for authentication  
+- **Node.js & Express.js**  
+- **MongoDB & Mongoose**  
+- **JWT Authentication**  
+- **BCrypt for Password & PIN Hashing**  
+- **CORS & Helmet for Security**  
 
 ## 🔹 **Features**  
 ✅ **User Features:**  
-- Send Money securely with a PIN  
-- Check transaction history  
-- Cash-in & Cash-out functionality  
-- Secure authentication & hashed PIN storage  
+- Register/Login securely  
+- Send Money with PIN validation  
+- Cash-in & Cash-out functionalities  
+- View transaction history  
 
 ✅ **Agent Features:**  
-- Handle cash-in/cash-out requests  
-- Approve user transactions  
-- Role-based dashboard  
+- Approve Cash-in/Cash-out transactions  
+- Manage balance for users  
+- Dashboard access  
 
 ✅ **Admin Features:**  
 - Manage users & agents  
-- Approve agents  
-- Monitor system-wide transactions  
+- Approve new agents  
+- Monitor all transactions  
 
-```
-
-### **Setup Instructions**  
+## 🔹 **Setup Instructions**  
 
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/khadizajarin/mobile-finance-client
-cd client
+git clone [Server Repo GitHub Link]
+cd server
 ```
 
 ### 2️⃣ Install Dependencies  
@@ -47,16 +44,38 @@ cd client
 npm install
 ```
 
-### 3️⃣ Create a `.env.local` file and add:  
+### 3️⃣ Create a `.env` file and add:  
 ```env
-NEXT_PUBLIC_API_URL=[Your Backend API URL]
+PORT=5000
+MONGO_URI=[Your MongoDB Connection String]
+JWT_SECRET=[Your JWT Secret Key]
+CORS_ORIGIN=http://localhost:3000,https://mobile-finance.netlify.app
 ```
 
 ### 4️⃣ Run Locally  
 ```bash
-npm run dev
+npm start
 ```
-  
+
+## 🔹 **API Endpoints**  
+
+📌 **Authentication**  
+- `POST /api/auth/register` → Register new users  
+- `POST /api/auth/login` → Login & get JWT token  
+
+📌 **Transactions**  
+- `POST /api/transactions/send-money` → Send money to another user  
+- `POST /api/transactions/cash-in` → Deposit money to user balance  
+- `POST /api/transactions/cash-out` → Withdraw money  
+
+📌 **User Management**  
+- `GET /api/users?email=user@example.com` → Get user details  
+- `GET /api/users/approved` → List approved users  
+
+📌 **Admin Management**  
+- `GET /api/admin/pending-agents` → Get pending agent requests  
+- `PUT /api/admin/approve-agent` → Approve agent registration  
+
 ## 🔹 **Login Credentials for Testing**  
 👨‍💼 **Admin**  
 📧 Email: `khadiza131310@gmail.com` | 🔑 Password: `12345678`  
@@ -68,10 +87,8 @@ npm run dev
 📧 Email: `n.ahmed@gmail.com` | 🔑 Password: `12345678` | PIN: `40321` | 📱 Mobile: `01676804470`  
 
 ## 🔹 **Deployment**  
-- **Frontend deployed on:** [Netlify Deployment Link]  
-- **Backend API:** [Railway Deployment Link]  
+- **Backend deployed on:** [\[Railway Deployment Link\]  ](https://mobile-finance-server-production.up.railway.app/)
+- **Frontend (Client Side) deployed on:** [\[Netlify Deployment Link\]  ](https://mobile-finance.netlify.app)
 
-🚀 **Feel free to fork and contribute!**  
+🚀 **Contributions are welcome!**  
 ```
-
-Let me know if you need any modifications! 🚀
