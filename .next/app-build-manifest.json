@@ -11,35 +11,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
     "/homepage/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/homepage/page.js"
     ],
-    "/profile/page": [
+    "/manage-users/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/profile/page.js"
+      "static/chunks/app/manage-users/page.js"
     ],
-    "/send-money/page": [
+    "/approved-agents/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/send-money/page.js"
+      "static/chunks/app/approved-agents/page.js"
     ],
-    "/cash-out/page": [
+    "/all-transactions/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/cash-out/page.js"
+      "static/chunks/app/all-transactions/page.js"
     ],
-    "/transactions/page": [
+    "/system-reports/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/transactions/page.js"
-    ],
-    "/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/register/page.js"
+      "static/chunks/app/system-reports/page.js"
     ]
   }
 }

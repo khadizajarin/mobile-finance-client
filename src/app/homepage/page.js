@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import PrivateRoute from "../components/PrivateRoute";
 import Navbar from "./navbar";
 import Button from "../commoncomps/Button";
-import AdminDashboard from "../admin/page";
 import axios from "axios";
 
 export default function Homepage() {
@@ -45,7 +44,9 @@ export default function Homepage() {
           const response = await axios.get("https://mobile-finance-server-production.up.railway.app/api/total-money");
   
           setTotalSystemBalance(response.data.total || 0); // ✅ Total system money
-          setUser(response.data);
+          if (response.data?.accountType) {
+            setUser(response.data);
+          }          
         } catch (error) {
           console.error("Error fetching total system balance:", error.response?.data?.message || error.message);
           setTotalSystemBalance(0);
@@ -114,9 +115,7 @@ export default function Homepage() {
     <PrivateRoute>
       <Navbar />
 
-      {
-        userRole === "admin" && <AdminDashboard />
-      }
+
 
       <div className="h-[39rem] flex items-center justify-center">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-7xl">

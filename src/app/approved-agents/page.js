@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Navbar from "../homepage/navbar";
 import axios from "axios";
+import AdminDashboard from "../admin/page";
 
 const ApprovedAgents = () => {
   const [agents, setAgents] = useState([]);
@@ -26,6 +27,8 @@ const ApprovedAgents = () => {
   return (
     <div>
         <Navbar></Navbar>
+
+        <AdminDashboard></AdminDashboard>
 
         <div className="p-6 text-gray-700">
         <h2 className="text-xl font-semibold mb-4 ">Approved Agents</h2>

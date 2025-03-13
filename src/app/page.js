@@ -9,30 +9,25 @@ import { AuthContext } from "@/lib/AuthProvider";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Button from "./commoncomps/Button";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Home() {
-  const [message, setMessage] = useState("");
-  const { signIn } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext); // ✅ Get user context
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("https://mobile-finance-server-production.up.railway.app/")
-      .then((response) => {
-        setMessage(response.data.message);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-  // Validation Schema
+  // ✅ Validation Schema
   const validationSchema = Yup.object().shape({
     role: Yup.string().oneOf(["user", "agent", "admin"]).required("Role is required"),
     email: Yup.string().email("Invalid email format").required("Email is required"),
     password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   });
 
+  // ✅ Handle Login
   const handleLogin = async (values, { setSubmitting }) => {
     if (!values.email || !values.password) {
       Swal.fire({
@@ -45,8 +40,10 @@ export default function Home() {
     }
 
     try {
-      await signIn(values.email, values.password);
+      await signIn(values.email, values.password); // ✅ Log in user
       router.push("/homepage");
+       // Delay to allow Context update
+
       Swal.fire({
         title: "Success!",
         text: "Successfully logged in!",
@@ -75,75 +72,80 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm">
+        <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
 
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm">
-          <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
+        {/* ✅ Formik Form */}
+        <Formik
+          initialValues={{ role: "user", email: "", password: "" }}
+          validationSchema={validationSchema}
+          onSubmit={handleLogin}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              {/* ✅ Role Selection */}
+              <div className="mt-4">
+                <label className="block text-sm font-medium text-gray-600">Select Role</label>
+                <Field as="select" name="role" className="select select-bordered w-full mt-1">
+                  <option value="user">User</option>
+                  <option value="agent">Agent</option>
+                  <option value="admin">Admin</option>
+                </Field>
+                <ErrorMessage name="role" component="p" className="text-red-500 text-xs mt-1" />
+              </div>
 
-          {/* Formik Form */}
-          <Formik
-            initialValues={{ role: "user", email: "", password: "" }}
-            validationSchema={validationSchema}
-            onSubmit={handleLogin}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                {/* Role Selection */}
-                <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-600">Select Role</label>
-                  <Field as="select" name="role" className="select select-bordered w-full mt-1">
-                    <option value="user">User</option>
-                    <option value="agent">Agent</option>
-                    <option value="admin">Admin</option>
-                  </Field>
-                  <ErrorMessage name="role" component="p" className="text-red-500 text-xs mt-1" />
-                </div>
+              {/* ✅ Email Input */}
+              <div className="mt-4">
+                <label className="block text-sm font-medium text-gray-600">Email</label>
+                <Field
+                  type="email"
+                  name="email"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="Enter your email"
+                />
+                <ErrorMessage name="email" component="p" className="text-red-500 text-xs mt-1" />
+              </div>
 
-                {/* Email Input */}
-                <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-600">Email</label>
+              {/* ✅ Password Input with Toggle Visibility */}
+              <div className="mt-4 relative">
+                <label className="block text-sm font-medium text-gray-600">Password</label>
+                <div className="relative">
                   <Field
-                    type="email"
-                    name="email"
-                    className="input input-bordered w-full mt-1"
-                    placeholder="Enter your email"
-                  />
-                  <ErrorMessage name="email" component="p" className="text-red-500 text-xs mt-1" />
-                </div>
-
-                {/* Password Input */}
-                <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-600">Password</label>
-                  <Field
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
-                    className="input input-bordered w-full mt-1"
+                    className="input input-bordered w-full mt-1 pr-10"
                     placeholder="Enter your password"
                   />
-                  <ErrorMessage name="password" component="p" className="text-red-500 text-xs mt-1" />
+                  <span
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-600"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </div>
+                <ErrorMessage name="password" component="p" className="text-red-500 text-xs mt-1" />
+              </div>
 
-                {/* Login Button */}
-                <Button
-                  type="submit"
-                  className="w-full mt-6 bg-[#C96868]"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Logging in..." : "Login"}
-                </Button>
-              </Form>
-            )}
-          </Formik>
+              {/* ✅ Login Button */}
+              <Button
+                type="submit"
+                className="w-full mt-6 bg-[#C96868]"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
+              </Button>
+            </Form>
+          )}
+        </Formik>
 
-          {/* Register Link */}
-          <p className="text-sm text-center mt-4">
-            Don't have an account?{" "}
-            <Link href="/register" className="text-[#C96868]">
-              Sign up
-            </Link>
-          </p>
-        </div>
+        {/* ✅ Register Link */}
+        <p className="text-sm text-center mt-4">
+          Don't have an account?{" "}
+          <Link href="/register" className="text-[#C96868]">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );
