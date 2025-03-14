@@ -1404,9 +1404,6 @@ html {
 .mb-4 {
   margin-bottom: 1rem;
 }
-.mb-8 {
-  margin-bottom: 2rem;
-}
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -1424,6 +1421,9 @@ html {
 }
 .mt-6 {
   margin-top: 1.5rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .block {
   display: block;
@@ -1446,6 +1446,9 @@ html {
 .h-\[39rem\] {
   height: 39rem;
 }
+.h-screen {
+  height: 100vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1466,6 +1469,9 @@ html {
 }
 .max-w-sm {
   max-width: 24rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
 }
 .translate-x-0 {
   --tw-translate-x: 0px;
@@ -1537,6 +1543,9 @@ html {
 .border {
   border-width: 1px;
 }
+.border-t {
+  border-top-width: 1px;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
@@ -1597,6 +1606,10 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1605,6 +1618,9 @@ html {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -1657,6 +1673,10 @@ html {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .text-base {
   font-size: 1rem;
@@ -1718,6 +1738,10 @@ html {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity, 1));
 }
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1725,6 +1749,18 @@ html {
 .text-yellow-600 {
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
+}
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity, 1));
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -1823,11 +1859,6 @@ body {
 
 .hover\:bg-\[rgba\(58\2c 56\2c 56\2c 0\.9\)\]:hover {
   background-color: rgba(58,56,56,0.9);
-}
-
-.hover\:bg-blue-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-gray-50:hover {

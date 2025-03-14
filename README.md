@@ -61,7 +61,6 @@ npm start
 
 📌 **Authentication**  
 - `POST /api/auth/register` → Register new users  
-- `POST /api/auth/login` → Login & get JWT token  
 
 📌 **Transactions**  
 - `POST /api/transactions/send-money` → Send money to another user  
